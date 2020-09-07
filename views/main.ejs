@@ -1,0 +1,37 @@
+<%- include('partials/head.ejs') -%>
+
+<div class="container-fluid">
+    <div class="row">
+        <%- include('partials/topBar.ejs') -%>
+    </div>
+    <div class="row"> 
+        <div class="col-sm-2 divSideBar">
+            <%- include('partials/sideBar.ejs') -%>
+        </div>
+        <div class="col-sm-9 divMainContent pt-3 w-100">
+            <div class="row">
+                <div class="col-md-6">
+                    <%- include('partials/table.ejs')  -%> 
+                </div>
+                <div class="col-md-6">
+                    <%- include('partials/table.ejs')  -%> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <%- include('partials/dashboard.ejs')  -%>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <%- include('partials/canvas.ejs', {numCanvas: 1})  -%> 
+                </div>
+                <div class="col-md-6">
+                    <%- include('partials/canvas.ejs', {numCanvas: 2})  -%> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') -%>
