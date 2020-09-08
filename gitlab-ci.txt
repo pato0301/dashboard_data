@@ -1,0 +1,23 @@
+stages:
+    - build
+    - run
+
+build_images:
+    stage: build
+    only:
+        -master
+    tags:
+        -dashboard
+    script:
+        - docker stop web-dashboard 2>/dev/null || true
+        - docker rm web-dashboard 2>/dev/null || true 
+        - docker build --tag dashboard .
+
+build_container:
+    stage: run
+    only:
+        -master
+    tags:
+        -dashboard
+    script:
+        - docker run -d -p 80:3000 --name web-dashboard dashboard      

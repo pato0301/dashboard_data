@@ -1,0 +1,10 @@
+.divSideBar {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.mySideBar {
+    position: sticky;
+    height: 100vh;
+    background-color: rgb(33, 37, 41);;
+}
