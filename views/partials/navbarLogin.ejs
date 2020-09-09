@@ -1,9 +1,21 @@
-<nav>
-    <div class="img-logo">
-        <!-- <img src="/images/logo_brayds_v1.png" alt="logo Brayds"> -->
-        <a href="/admin"><img src="/logo/svg-logo.png" alt="logo"></a>
-    </div>
-    <div class="nav-izq">
-        <a href="/admin"><p>Mi Cuenta</p></a>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img class="" src="/logo/svg-logo.png" alt="" width="40" height="40"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="nav bd-highlight ml-auto">
+            <% if (page != 'undefined' && page === 'register') { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Back to Main</a>
+                </li>
+            <% } %>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="/login">Iniciar Sesion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="/register" tabindex="-1" aria-disabled="true">Registrarse</a>
+            </li>
+        </ul>
     </div>
 </nav>

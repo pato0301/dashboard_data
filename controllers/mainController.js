@@ -7,11 +7,18 @@ module.exports = {
         res.render("main")
     },
     login: (req,res) => {
-        res.render("login")
+        res.render("login", {page:'login'})
     },
     checkLogin: (req,res) => {
         console.log(req.body);
-
-        res.render("login")
+        req.session.user = req.body.email
+        res.redirect("/")
+    },
+    register: (req,res) => {
+        res.render("register", {page:'register'})
+    },
+    saveNewUser: (req,res) => {
+        console.log(req.body);
+        res.redirect("/")
     }
 }
