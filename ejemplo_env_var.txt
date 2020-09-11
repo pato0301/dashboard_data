@@ -1,0 +1,7 @@
+MYSQL_USER: [username that will use the node project to connect]
+MYSQL_PASSWORD: [password for the user connecting to the db in the node project]
+MYSQL_DATABASE: [database name]
+MYSQL_PORT: [3306]
+MYSQL_HOST: [sql] // must have the same names as the mysql container
+NODE_ENV: [environment for the node project] // 'production'
+MYSQL_ROOT_PASSWORD: [password for the root user] //mandatory variable

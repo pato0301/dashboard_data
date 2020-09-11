@@ -1,0 +1,44 @@
+version: '3'
+networks:
+    databases:
+        driver: bridge
+        external: False
+services: 
+    app:
+        build: 
+            context: . 
+            dockerfile: $PWD/server/dockerfile
+        container_name: dashboard
+        restart: unless-stopped
+        working_dir: /src
+        command: npm start
+        environment: 
+            MYSQL_USER: $MYSQL_USER
+            MYSQL_PASSWORD: $MYSQL_PASSWORD
+            MYSQL_DATABASE: $MYSQL_DATABASE
+            MYSQL_PORT: $MYSQL_PORT
+            MYSQL_HOST: $MYSQL_HOST
+            NODE_ENV: $NODE_ENV
+        networks: 
+            - databases
+        ports: 
+            - 80:3000
+            - 443:443
+        depends_on: 
+            - sql
+    sql:
+        image: mariadb:10.3
+        container_name: sql
+        environment:
+            MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+            MYSQL_USER: $MYSQL_USER
+            MYSQL_PASSWORD: $MYSQL_PASSWORD
+            MYSQL_DATABASE: $MYSQL_DATABASE
+            MYSQL_PORT: $MYSQL_PORT
+        networks: 
+            - databases
+        expose: 
+            - $MYSQL_PORT
+        volumes: 
+            - /srv/docker/mysql/data:/var/lib/mysql
+        restart: 'unless-stopped'
