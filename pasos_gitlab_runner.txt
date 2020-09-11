@@ -1,0 +1,9 @@
+1) sudo gitlab-runner register
+    a) https://gitlab.com/
+    b) token (esto esta en gitlab)
+    c) descripcion maquina ej. ip publica
+    d) tags: uso q se le da (para mas de uno se separan con comas)
+    e) executor (bash, docker). ej si se usa docker cada vez que se 
+    corra el runner se esta levantando un nuevo contenedor.
+    f) (opcional) --> elegir imagen por defecto de dcoker (cuando se usa docker)
+2) agregar tags en el gitlab-runner.yml: -[nombre del tag] 
