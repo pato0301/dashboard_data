@@ -1,0 +1,12 @@
+// run a dump with the structure of the db
+1) copy the dump into the vm machine
+2) docker exec -i sql -c 'exec mysql -uroot -p"[password root]"' < /root/mysql/dashboard_dump.sql
+
+// Create the user and allow permissions
+1)  CREATE USER 'user'@'localhost' IDENTIFIED BY 'password'
+    CREATE USER 'user'@'%' IDENTIFIED BY 'password'
+
+// Allow permissions
+// the * is to give permissions to all the tables
+1)  GRANT ALL ON [database].* TO 'user'@'localhost' IDENTIFIED BY 'password'
+    GRANT ALL ON [database].* TO 'user'@'%' IDENTIFIED BY 'password'
