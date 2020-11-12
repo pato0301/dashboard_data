@@ -9,9 +9,12 @@ build_images:
     tags:
         -dashboard
     script:
-        - docker stop web-dashboard 2>/dev/null || true
-        - docker rm web-dashboard 2>/dev/null || true 
-        - docker build --tag dashboard .
+        - docker stop $(docker ps -a -q) 2>/dev/null || true
+        - docker rm $(docker ps -a -q) 2>/dev/null || true
+        - docker-compose build
+        #- docker stop web-dashboard 2>/dev/null || true
+        #- docker rm web-dashboard 2>/dev/null || true 
+        #- docker build --tag dashboard .
 
 build_container:
     stage: run
@@ -20,4 +23,5 @@ build_container:
     tags:
         -dashboard
     script:
-        - docker run -d -p 80:3000 --name web-dashboard dashboard      
+        - docker-compose up -d
+        #- docker run -d -p 80:3000 --name web-dashboard dashboard      
